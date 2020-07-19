@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-transform"/>
-<title>cblog可以使用了 - cblog</title>
+<title>微信浏览网页自动转码提示之解决方案 - cblog</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="stylesheet" href="/static/plugins/highlight.min.css">
 <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -80,7 +80,7 @@
 </section>
 <div class="copyright">
   <ul>
-    <li onclick="alert('O(∩_∩)O')">©2019 珏</li>
+    <li onclick="alert('O(∩_∩)O')">©2018-2020 珏</li>
     <li>Flask & Jinja2</li>
     <li><span style="display: none">wx:cgjuee && qq:467784592</span></li>
   </ul>
@@ -109,10 +109,10 @@
       <header>
         <div>
           <h1>
-          <a href="/view/1.html">cblog可以使用了</a>
+          <a href="/view/4_%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5%E8%87%AA%E5%8A%A8%E8%BD%AC%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B9%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">微信浏览网页自动转码提示之解决方案</a>
           </h1>
-          <div class="about">by self on 2018-05-13
-          <span id="/view/1.html" class="leancloud_visitors" data-flag-title="cblog可以使用了">
+          <div class="about">by self on 2018-05-23
+          <span id="/view/4_%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5%E8%87%AA%E5%8A%A8%E8%BD%AC%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B9%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" class="leancloud_visitors" data-flag-title="微信浏览网页自动转码提示之解决方案">
               <em class="post-meta-item-text">access </em>
               <i class="leancloud-visitors-count"></i>
           </span>
@@ -120,29 +120,41 @@
         </div>
         
       </header>
-      <div id="editor-md"># 在flask例子flaskr的基础上改的。
-#cblog.site网站源代码。
-	使用sqlite3数据库， 登录后可编辑新页面。
-	使用命令```python genStaticHtml.py``` 可导出所有静态页面，在github page上浏览，效果还可以。
-# 文章生成使用了wangEditor.js ,代码高亮使用highlight.min.js
-# 启动web服务 ```$python app.py```
-# 数据库初始化 ```$flask initdb```
-# 注册账号需要邀请码，自己往数据库表welcode中添加即可，注册页面中邀请码输入栏禁止输入，要自己想办法输进去    
-	tips: 浏览器页面中修改标签属性
-# 生成静态页面
-	在web服务正常运行的前提下，使用命令 ```python genStaticHtml.py```生成静态页面
-# 上传静态页面到github page 
-	修改uploadcgjue.site.io.sh 中的github地址，
-	然后运行$sh uploadcgjue.site.io.sh
-
-## next step:    
-1. 增加上传文件功能，方便引入自己的脚本和图片等。   
-2. 增加评论功能，对于静态网站来说，
-引用第三方的评论插件就行了吧。
-[cblog.site源码](https://github.com/cgjue/cblog.site "cblog.site源码")
-
-## 2019.11.03
-修改了cblog的后台管理界面，改用editor.md作为markdown编辑插件，并设置了是否使用editor.md的页面功能选项，引入valine作为评论插件，并使用server酱作为访问提示，好吧，谁看了我的文章，我都能收到提示，毕竟太少有人可能访问我的文章了。</div>
+      <div id="editor-md">	在微信中查看互联网上分享的网页时，由于微信的自动网页转码机制，导致部分页面无法正常显示。
+	由于绑定域名，需要购买云服务器，并需要备案，流程比较繁琐，所以考虑在代码中给用户以提示，让其在系统浏览器上查看页面。
+	最初的想法是判断是否在微信中浏览，如果是，就给予提示，否则就不给予提示，但是编写过程中，发现在微信中无法操作document，导致提示无法正常进行。
+	后来，灵光一闪，决定反其道而行之，既然在微信中js代码不能正常运行，那就提前准备好异常显示提醒，如果js代码能正常运行，那就把异常显示提醒抹去；反之，异常显示提醒则会展示在用户的浏览界面上。部分代码如下：
+```
+<style> 
+#wechat {
+	font-size: 14px;
+	padding: 5px;
+	color: #b94a48;
+	background: #f2dede; 
+	line-height: 20px; 
+	display: block;  
+} 
+</style>
+<view id="wechat">
+	<p>页面重新排版会导致加载变慢，并影响显示效果，
+		<strong>请点击右上角按钮，选择在浏览器中打开，并选择查看原网页
+		</strong>
+	</p>
+</view> 
+<script>
+function isWechat() {
+	var ua = navigator.userAgent.toLowerCase();
+	return ua.match(/MicroMessenger/i) == "micromessenger" ? true : false         
+} 
+if(!isWechat())
+	document.getElementById('wechat').style.display='none'    </script>
+```
+后期发展：而后，想了想，根据这种想法，判断是不是在微信中运行是多余的，于是只保留了
+```
+document.getElementById('wechat').style.display='none'
+```
+结果在微信中浏览时，发现竟然没有异常提示了。想了想原因，应该和js代码的加载顺序有关，最初的时候，我将代码放在<head>里，代码提前运行，而<body>尚未加载，导致找不到想要修改的元素。
+所以，最终的解决方案，还是看自己爱好吧，在微信中，还是提示可能存在的自动转码吧，尽管在微信中访问原网页还是会提示这些。</div>
       <div id="vcomments"></div>
     <script>
         valine = new Valine({

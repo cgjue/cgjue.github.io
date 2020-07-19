@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-transform"/>
-<title>华硕Fl8000un安装黑苹果10.14.5 - cblog</title>
+<title>crossover破解 - cblog</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="stylesheet" href="/static/plugins/highlight.min.css">
 <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -80,7 +80,7 @@
 </section>
 <div class="copyright">
   <ul>
-    <li onclick="alert('O(∩_∩)O')">©2019 珏</li>
+    <li onclick="alert('O(∩_∩)O')">©2018-2020 珏</li>
     <li>Flask & Jinja2</li>
     <li><span style="display: none">wx:cgjuee && qq:467784592</span></li>
   </ul>
@@ -109,10 +109,10 @@
       <header>
         <div>
           <h1>
-          <a href="/view/9.html">华硕Fl8000un安装黑苹果10.14.5</a>
+          <a href="/view/10_crossover%E7%A0%B4%E8%A7%A3.html">crossover破解</a>
           </h1>
-          <div class="about">by self on 2019-06-19
-          <span id="/view/9.html" class="leancloud_visitors" data-flag-title="华硕Fl8000un安装黑苹果10.14.5">
+          <div class="about">by self on 2019-11-03
+          <span id="/view/10_crossover%E7%A0%B4%E8%A7%A3.html" class="leancloud_visitors" data-flag-title="crossover破解">
               <em class="post-meta-item-text">access </em>
               <i class="leancloud-visitors-count"></i>
           </span>
@@ -120,40 +120,70 @@
         </div>
         
       </header>
-      <div id="editor-md"># 华硕fl8000un安装黑苹果10.14.5
-## 准备
-1. 下载带clover的镜像[https://blog.daliansky.net/macOS-Mojave-10.14.5-18F132-official-version-with-Clover-4928-original-image.html](黑果小兵macOS-10.14.5)
-2. 下载TransMac.exe
-3. 一个至少8G的U盘
-4. Bios版本305（306，308目前在我的电脑上不能用，若版本较高，使用WinFlash.exe /nodate 降级）
-5. 使用磁盘管理工具分出一个70G的分区
+      <div id="editor-md">### 根源：
+	crossover使用非对称加密，公钥可被替换，账号格式可通过阅读crossover的python文件得到，自己创建公私钥可替换之，从而注册成功，整个注册过程不涉及网络交互。
+### 破解代码
+```
+# coding: utf-8
 
-## 安装
-1.  使用TransMac.exe将U盘格式化为Mac磁盘格式，并使用Restore Image功能将下载的镜像刻录到U盘。
-2.  重启电脑进入Bios设置，关闭Secure Boot，并修改启动项为U盘启动。
-3.  在Clover启动项中选择Install MacOS from Install ...项，即U盘启动项
-4.  在安装界面中选择磁盘工具，在“显示”项中选择显示所有设备，将提前规划好的分区格式化为APFS格式（格式化时选择一个好点的名字如macos）
-5.  返回选择安装Macos，选择安装磁盘位置macos，进行安装
-6.  安装进程会将镜像解压并重启，在启动项中选择Preboot项，系统会继续安装，等待重启（若很快重启，再选择这个项，大概需要等十几分钟）
-7.  重启后选择从macos启动，完成简单的配置，即安装完成
-8.  使用Clover Configure挂载EFI分区，将U盘中的EFI分区中的文件拷贝到电脑的EFI分区
-## 系统完善
-1.  修复WIFI， 下载kext utility，打开后，将从[https://blog.daliansky.net/macOS-Mojave-10.14.5-18F132-official-version-with-Clover-4928-original-image.html](AirPortAtheros40.kext)下载的AirPortAtheros40.kext拖拽进去，重启（目前能找到连接WIFI，但网速特慢，不知如何解决）
-2.  修复声卡，使用Clover Configure挂载EFI分区，并打开配置文件config.plist，在Devices项中的Audio注入id=11，保存重启
-3.  修复显卡，使用Clover Configure挂载EFI分区，并打开配置文件config.plist，在Graphics项中将ig-platform-id项中写入0x591b0000，并勾选InjectIntel项，在Devices项中，将IntelGFX项值设为0x59168086，保存重启(在windows下发现自己的显卡id是0x59178086,这是我需要注入的原因吧)
-4.  蓝牙问题，需要先启动下windows，再重启进入macos才能启动蓝牙，貌似macos不能直接冷启动蓝牙
-5.  安装USB网卡，百度HoRNDIS，下载并安装重启
-6.  安装xtralFinder永久使用版，增强Finder功能
-7.  安装karabiner，交换left_option和left_command项。
-8.  修复触摸板，因为我的触摸板是I2C的，从github上下载VOODOOI2C，重启后驱动
-9.  开启hidpi，在github上搜索hidpi，选择one-key-hidpi，里面有个一键开启的命令，重启后，在显示器上选择缩放，并选择合适的分辨率。
-10.  USB网卡，某宝买rtl8811au的usb网卡，在网上搜索到驱动，安装后重启（自带光盘驱动，可惜没光驱。。。）
-## 常用软件
-1. 网易云音乐
-2. QQ
-3. 微信
-4. 搜狗拼音
-5. 根据需要安装想装的软件</div>
+# In[1]:
+
+
+import sys
+import os
+base = "/opt/cxoffice"
+private_key_path = base + "/share/crossover/data/private_key.pem"
+pub_key_path = base + "/share/crossover/data/tie.pub"
+license_path = base + "/etc/license.txt"
+license_sig = base + "/etc/license.sig"
+
+
+# In[2]:
+
+
+sys.path.append(base + "/lib/python/")
+
+
+# In[3]:
+
+
+import cxutils
+'''
+import cxconfig
+conf["crosslin"]["customer"]="kkk"
+conf["crosslin"]["expires"]="2199/03/20"
+conf["license"]["id"]="12345678"
+file_obj = open(license_path, "w")
+for block in conf.blocks:
+    for line in block:
+        if line is not None:
+            file_obj.write(line)
+file_obj.close()
+'''
+##奇葩的文件锁，主要是了解文件格式是怎样的就行了
+
+args = ("openssl", "genrsa", "-out", private_key_path, "2048")
+cxutils.run(args, stdout=cxutils.NULL, stderr=cxutils.NULL)
+args = ("openssl", "rsa", "-in", private_key_path, "-pubout", "-out", pub_key_path)
+cxutils.run(args, stdout=cxutils.NULL, stderr=cxutils.NULL)
+
+lic = '''
+[crosslin]
+"customer" = "kkk"
+"expires" = "2199/03/20"
+
+[license]
+"id" = "12345678"
+'''
+with open(license_path, "w") as f:
+    f.write(lic)
+
+
+args = ("openssl", "dgst", "-sha1", "-sign", private_key_path, "-out", license_sig, license_path)
+cxutils.run(args, stdout=cxutils.NULL, stderr=cxutils.NULL)
+
+
+```</div>
       <div id="vcomments"></div>
     <script>
         valine = new Valine({

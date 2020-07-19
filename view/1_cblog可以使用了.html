@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-transform"/>
-<title>俄罗斯方块 - cblog</title>
+<title>cblog可以使用了 - cblog</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="stylesheet" href="/static/plugins/highlight.min.css">
 <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -80,7 +80,7 @@
 </section>
 <div class="copyright">
   <ul>
-    <li onclick="alert('O(∩_∩)O')">©2019 珏</li>
+    <li onclick="alert('O(∩_∩)O')">©2018-2020 珏</li>
     <li>Flask & Jinja2</li>
     <li><span style="display: none">wx:cgjuee && qq:467784592</span></li>
   </ul>
@@ -109,10 +109,10 @@
       <header>
         <div>
           <h1>
-          <a href="/view/8.html">俄罗斯方块</a>
+          <a href="/view/1_cblog%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BA%86.html">cblog可以使用了</a>
           </h1>
-          <div class="about">by self on 2018-12-27
-          <span id="/view/8.html" class="leancloud_visitors" data-flag-title="俄罗斯方块">
+          <div class="about">by self on 2018-05-13
+          <span id="/view/1_cblog%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BA%86.html" class="leancloud_visitors" data-flag-title="cblog可以使用了">
               <em class="post-meta-item-text">access </em>
               <i class="leancloud-visitors-count"></i>
           </span>
@@ -120,41 +120,29 @@
         </div>
         
       </header>
-      <div id="editor-md">俄罗斯方块是小时候特别喜欢玩的游戏，很能消磨时间。然而长大了却不再玩了，以为不管方块再怎么堆放，总有堆满的时候，似乎是一场永远没有最终胜利的游戏，而所谓的通关，亦不过达到了某个标准的认可而已。尽管如此，俄罗斯方块里还是有很多耐人寻味的道理
-1 越到后来，难度越大
-2 每一次都不同没有绝对的公平可言
-3 获得的成功总会渐渐的在把控不当的情况下消失
-4 犯下的错误会积累走错一步，要用几步来弥补
-5 专注和冷静最重要你的心态决定你能走多远
-6 做点什么，比什么都不做要好
-7 合群你就会消失但是不合群就会被盯上...
-	俄罗斯方块， 据说有人曾用60行代码就能实现，但下载了源码，效果不够理想，也许是因为那样的代码只是实现了其中的关键部分，而游戏的积分规则、等级和难度设置都需要进一步的设置吧。
-	在网上找了些代码，终于找到一份比较不错的代码，至少这份代码更容易被人阅读吧。俄罗斯方块在实现时，有两个方面的难点吧，一是七种方块的定义和变换的描述，二是方块的统计和消除。简单来说，每种方块的定义可以用4个(0,8)的X,Y坐标点描述，而方块的旋转变换，则可选择其中一个方块为相对原点，参考几何数学上的坐标旋转规则来推到出其他方块的位置。
-```
-* 方块旋转   * 顺时针：   * A.x =O.y + O.x - B.y   * A.y =O.y - O.x + B.x
-```
-方块的统计和消除可以利用二维坐标来实现，令方块坐标所在点为1，则一行全为1的可被消除。
-```
-for (var i = 0; i < block.length; i++) {
-	var flag = true;
-    var y = block[i].y;
-	for (var j = 0; j < maxX; j++) {
-		if (gameMap[y][j] == false) {
-			flag = false;
-			break;
-		}
-	}
-	if (flag) {
-		count +=1;
-		for (var i = y; i > 0; i--) {
-			for (var j = 0; j < maxX; j++) {
-				gameMap[i][j] = gameMap[i - 1][j];
-			}
-		}
-	} 
-}
-```
-游戏源码在此[https://game.cblog.site/round.html](俄罗斯方块)</div>
+      <div id="editor-md"># 在flask例子flaskr的基础上改的。
+#cblog.site网站源代码。
+	使用sqlite3数据库， 登录后可编辑新页面。
+	使用命令```python genStaticHtml.py``` 可导出所有静态页面，在github page上浏览，效果还可以。
+# 文章生成使用了wangEditor.js ,代码高亮使用highlight.min.js
+# 启动web服务 ```$python app.py```
+# 数据库初始化 ```$flask initdb```
+# 注册账号需要邀请码，自己往数据库表welcode中添加即可，注册页面中邀请码输入栏禁止输入，要自己想办法输进去    
+	tips: 浏览器页面中修改标签属性
+# 生成静态页面
+	在web服务正常运行的前提下，使用命令 ```python genStaticHtml.py```生成静态页面
+# 上传静态页面到github page 
+	修改uploadcgjue.site.io.sh 中的github地址，
+	然后运行$sh uploadcgjue.site.io.sh
+
+## next step:    
+1. 增加上传文件功能，方便引入自己的脚本和图片等。   
+2. 增加评论功能，对于静态网站来说，
+引用第三方的评论插件就行了吧。
+[cblog.site源码](https://github.com/cgjue/cblog.site "cblog.site源码")
+
+## 2019.11.03
+修改了cblog的后台管理界面，改用editor.md作为markdown编辑插件，并设置了是否使用editor.md的页面功能选项，引入valine作为评论插件，并使用server酱作为访问提示，好吧，谁看了我的文章，我都能收到提示，毕竟太少有人可能访问我的文章了。</div>
       <div id="vcomments"></div>
     <script>
         valine = new Valine({
