@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-transform"/>
-<title>登录 - cblog</title>
+<title>大麦盒子DM40A7免拆刷机包 - cblog</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="stylesheet" href="/static/plugins/highlight.min.css">
 <script src="/static/plugins/highlight.min.js"></script>
@@ -93,13 +93,69 @@
 <section class="content">
   
   
-  <form method="post">
-    <label for="username">账号</label>
-    <input name="username" id="username" required>
-    <label for="password">密码</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="登录">
-  </form>
+  <style>
+    .comment_submit{
+      margin-top: 5px;position: relative;float: right;
+    }
+  </style>
+  <article class="post">
+      <header>
+        <div>
+          <h1>
+          <a href="/view/16_%E5%A4%A7%E9%BA%A6%E7%9B%92%E5%AD%90DM40A7%E5%85%8D%E6%8B%86%E5%88%B7%E6%9C%BA%E5%8C%85.html">大麦盒子DM40A7免拆刷机包</a>
+          </h1>
+          <div class="about">by self on 2022-06-08
+          <span id="/view/16_%E5%A4%A7%E9%BA%A6%E7%9B%92%E5%AD%90DM40A7%E5%85%8D%E6%8B%86%E5%88%B7%E6%9C%BA%E5%8C%85.html" class="leancloud_visitors" data-flag-title="大麦盒子DM40A7免拆刷机包">
+              <em class="post-meta-item-text">access </em>
+              <i class="leancloud-visitors-count"></i>
+          </span>
+          </div>
+        </div>
+        
+      </header>
+      <div id="editor-md">## 起因
+1. 买的宽带免费送的盒子，当时宽带小哥就说盒子里尽是广告和会员，没什么用。果不其然，拿到盒子后被恶心到了。实际上，国内的电视盒子大多都是这个套路，广告和会员满天飞，不管是小米、腾讯、华为还是天猫魔盒，都不能免俗。
+## 经过
+1. 想要有一个好的收视体验，又不想掏那么多钱，也就只能走DIY渠道。在网上百度了很久，在智能电视网ZDNS上花了一元钱下载了一个刷机包，能够刷进去，可惜一旦退出应用就黑屏了，是个半成品，还需要加工下。
+2. 在网上找了解包软件，将固件解包分析。发现固件里有内存限制，会只保留一个活跃的前置Activity，同时有个看门狗程序，当发现没有其他前置Activity后就把自己的桌面起起来。
+3. 按照这个思路，尝试写个shell来检测前置Activity，必要是启动自己的桌面。发现Shell兼容性不行，所以就改成C来写了，之后让它开机后循环执行。其实也可以用Java写个服务，同样有效果。
+## 结果
+1. 思路大概是这样的，剩下的就是调Bug。成品可参见链接：https://pan.baidu.com/s/1gAwTEn-jFKQcA0RLPwkwgg 
+提取码：hvbm</div>
+      <div id="vcomments"></div>
+    <script>
+        valine = new Valine({
+            el: '#vcomments',
+            appId: '60wyh0DJ1SRlQ407ocEYnwX6-gzGzoHsz',
+            appKey: 'QBr4ziKrU4SRReFuhICueCUv',
+            visitor: true,
+            verify: true,
+            notify: true,
+            recordIP:true,
+        })
+    </script>
+        <script type="text/javascript">
+        var testEditor;
+$(function() {
+var html = $('#editor-md').html()
+$('#editor-md').html('<textarea stle="display:none">'+ html + '</textarea>')
+              testEditor = editormd.markdownToHTML("editor-md", {
+                  
+                  codeFold : true,
+                  emoji : true,
+                  taskList : true,
+                  tocm: true,         // Using [TOCM]
+                  tex : true,                   // 开启科学公式TeX语言支持，默认关闭
+                  flowChart : true,             // 开启流程图支持，默认关闭
+                  sequenceDiagram : true,       // 开启时序/序列图支持，默认关闭,
+                  
+              });
+              
+          });
+
+        </script>
+      </div>
+    </article>
 
 </section>
 
