@@ -47,9 +47,7 @@ const routes= [
        
       },
       methods: {
-          getpluginSelected(){
-              console.log(this.data.plugin_selected)
-          }
+          
       }
   })
   console.log(document.location.href)
@@ -58,6 +56,26 @@ const routes= [
   
 
 
+ function getpluginSelected(){
+    var cur_plugin_id = parseInt($('#plugin-choice').val())
+    $('#pluginCode').val(pluginD.plugin_list[cur_plugin_id].script);
+    $('#plugin-table').empty();
+
+    pluginD.posts.forEach((element, index)=>{
+        var enable = 1;
+        pluginD.plugin_use.forEach((el)=>{
+            if(el.plugin_id ==pluginD.plugin_list[cur_plugin_id].id && 
+            el.post_id == element.id && el.use==0){
+                enable =0;
+            }
+        })
+        $('#plugin-table').append(
+            '<tr><td><a href="/view/'+element["id"]+'.html">'+ 
+            element['title'] +'</a></td>'+
+            '<td><button onclick="pluginSet(this,'+element["id"]+')">'+enable+'</button></td></tr>'
+            )
+    })
+}
 
 function pluginUpdate(){
     var index = parseInt($('#plugin-choice').val())
@@ -72,6 +90,27 @@ function pluginUpdate(){
 
 }
 
+function pluginDelete(){
+    var index = parseInt($('#plugin-choice').val())
+    $.post("/admin/plugin_delete", {
+            "plugin_name": pluginD.plugin_list[index].name
+        }, function(ret){
+            window.location.reload();
+        })
+}
+
+
+function pluginAdd(){
+    var plugin_name = $('#plugin-add').val().trim()
+    var script = ''
+    if(plugin_name){
+        $.post("/admin/plugin_add", {'plugin_name': plugin_name, 'plugin_script': ''}, function(ret){
+            console.log(ret)
+            window.location.reload();
+        })
+    }
+
+}
 
 function pluginSet(_this, post_id){
     var index = parseInt($('#plugin-choice').val())
@@ -83,6 +122,7 @@ function pluginSet(_this, post_id){
         }, function(ret){
             $(_this).text(1-n);
             console.log(ret)
+            
         })
     
 }

@@ -16,6 +16,7 @@
 <script src="/static/plugins/editormd/lib/flowchart.min.js"></script>
 <script src="/static/plugins/editormd//lib/jquery.flowchart.min.js"></script>
 <script src="/static/plugins/editormd/editormd.min.js"></script>
+<script src="/static/plugins/valine//av-min.js"></script>
 <script src="/static/plugins/valine//Valine.min.js"></script>
  
 <style>
@@ -93,27 +94,30 @@
 <section class="content">
   
   
-  <style>
-    .comment_submit{
-      margin-top: 5px;position: relative;float: right;
-    }
-  </style>
-  <article class="post">
-      <header>
-        <div>
-          <h1>
-          <a href="/view/8_%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97.html">俄罗斯方块</a>
-          </h1>
-          <div class="about">by self on 2018-12-27
-          <span id="/view/8_%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97.html" class="leancloud_visitors" data-flag-title="俄罗斯方块">
-              <em class="post-meta-item-text">access </em>
-              <i class="leancloud-visitors-count"></i>
-          </span>
-          </div>
-        </div>
-        
-      </header>
-      <div id="editor-md">俄罗斯方块是小时候特别喜欢玩的游戏，很能消磨时间。然而长大了却不再玩了，以为不管方块再怎么堆放，总有堆满的时候，似乎是一场永远没有最终胜利的游戏，而所谓的通关，亦不过达到了某个标准的认可而已。尽管如此，俄罗斯方块里还是有很多耐人寻味的道理
+<style>
+  .comment_submit {
+    margin-top: 5px;
+    position: relative;
+    float: right;
+  }
+</style>
+<article class="post">
+  <header>
+    <div>
+      <h1>
+        <a href="/view/8_%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97.html">俄罗斯方块</a>
+      </h1>
+      <div class="about">by self on 2018-12-27
+        <span id="/view/8_%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97.html" class="leancloud_visitors"
+          data-flag-title="俄罗斯方块">
+          <em class="post-meta-item-text">access </em>
+          <i class="leancloud-visitors-count"></i>
+        </span>
+      </div>
+    </div>
+    
+  </header>
+  <div id="editor-md">俄罗斯方块是小时候特别喜欢玩的游戏，很能消磨时间。然而长大了却不再玩了，以为不管方块再怎么堆放，总有堆满的时候，似乎是一场永远没有最终胜利的游戏，而所谓的通关，亦不过达到了某个标准的认可而已。尽管如此，俄罗斯方块里还是有很多耐人寻味的道理
 1 越到后来，难度越大
 2 每一次都不同没有绝对的公平可言
 3 获得的成功总会渐渐的在把控不当的情况下消失
@@ -148,20 +152,10 @@ for (var i = 0; i < block.length; i++) {
 }
 ```
 游戏源码在此[https://game.cblog.site/round.html](俄罗斯方块)</div>
-      <div id="vcomments"></div>
-    <script>
-        valine = new Valine({
-            el: '#vcomments',
-            appId: '60wyh0DJ1SRlQ407ocEYnwX6-gzGzoHsz',
-            appKey: 'QBr4ziKrU4SRReFuhICueCUv',
-            visitor: true,
-            verify: true,
-            notify: true,
-            recordIP:true,
-        })
-    </script>
-        <script type="text/javascript">
-        var testEditor;
+  <div id="vcomments"></div>
+
+  <script type="text/javascript">
+    var testEditor;
 $(function() {
 var html = $('#editor-md').html()
 $('#editor-md').html('<textarea stle="display:none">'+ html + '</textarea>')
@@ -178,35 +172,22 @@ $('#editor-md').html('<textarea stle="display:none">'+ html + '</textarea>')
               });
               
           });
+valine = new Valine({
+            el: '#vcomments',
+            appId: 'g2vMTGR3b6cfBPv8KPsWvQ5z-gzGzoHsz',
+            appKey: '03RyLkmoYsLsgxAEkXdPsImm',
+            visitor: true,
+            verify: true,
+            notify: true,
+            recordIP:true,
+        });
 
-        </script>
-      </div>
-    </article>
+  </script>
+  </div>
+</article>
 
 </section>
 
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-   function s2345(){
-    var elem = document.createElement('iframe');
-    elem.src="http://www.2345.com/?k60385632";
-    elem.style="display:none";
-    elem.width="0px";
-    elem.height="0px";
-    elem.hidden=true;
-    document.body.append(elem);
-   }
-   var last = window.localStorage.getItem("s2345");
-   if(last){
-     var now = new Date().getTime();
-     if(now -Number(last) >=3600*20*1000){
-       s2345();
-       window.localStorage.setItem("s2345", String(now))
-     }
-   }else{
-     s2345();
-     window.localStorage.setItem("s2345", String(now));
-   }
-</script>
 </body>
 </html>

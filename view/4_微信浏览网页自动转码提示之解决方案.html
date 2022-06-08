@@ -16,6 +16,7 @@
 <script src="/static/plugins/editormd/lib/flowchart.min.js"></script>
 <script src="/static/plugins/editormd//lib/jquery.flowchart.min.js"></script>
 <script src="/static/plugins/editormd/editormd.min.js"></script>
+<script src="/static/plugins/valine//av-min.js"></script>
 <script src="/static/plugins/valine//Valine.min.js"></script>
  
 <style>
@@ -93,27 +94,30 @@
 <section class="content">
   
   
-  <style>
-    .comment_submit{
-      margin-top: 5px;position: relative;float: right;
-    }
-  </style>
-  <article class="post">
-      <header>
-        <div>
-          <h1>
-          <a href="/view/4_%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5%E8%87%AA%E5%8A%A8%E8%BD%AC%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B9%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">微信浏览网页自动转码提示之解决方案</a>
-          </h1>
-          <div class="about">by self on 2018-05-23
-          <span id="/view/4_%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5%E8%87%AA%E5%8A%A8%E8%BD%AC%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B9%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" class="leancloud_visitors" data-flag-title="微信浏览网页自动转码提示之解决方案">
-              <em class="post-meta-item-text">access </em>
-              <i class="leancloud-visitors-count"></i>
-          </span>
-          </div>
-        </div>
-        
-      </header>
-      <div id="editor-md">	在微信中查看互联网上分享的网页时，由于微信的自动网页转码机制，导致部分页面无法正常显示。
+<style>
+  .comment_submit {
+    margin-top: 5px;
+    position: relative;
+    float: right;
+  }
+</style>
+<article class="post">
+  <header>
+    <div>
+      <h1>
+        <a href="/view/4_%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5%E8%87%AA%E5%8A%A8%E8%BD%AC%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B9%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">微信浏览网页自动转码提示之解决方案</a>
+      </h1>
+      <div class="about">by self on 2018-05-23
+        <span id="/view/4_%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5%E8%87%AA%E5%8A%A8%E8%BD%AC%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B9%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" class="leancloud_visitors"
+          data-flag-title="微信浏览网页自动转码提示之解决方案">
+          <em class="post-meta-item-text">access </em>
+          <i class="leancloud-visitors-count"></i>
+        </span>
+      </div>
+    </div>
+    
+  </header>
+  <div id="editor-md">	在微信中查看互联网上分享的网页时，由于微信的自动网页转码机制，导致部分页面无法正常显示。
 	由于绑定域名，需要购买云服务器，并需要备案，流程比较繁琐，所以考虑在代码中给用户以提示，让其在系统浏览器上查看页面。
 	最初的想法是判断是否在微信中浏览，如果是，就给予提示，否则就不给予提示，但是编写过程中，发现在微信中无法操作document，导致提示无法正常进行。
 	后来，灵光一闪，决定反其道而行之，既然在微信中js代码不能正常运行，那就提前准备好异常显示提醒，如果js代码能正常运行，那就把异常显示提醒抹去；反之，异常显示提醒则会展示在用户的浏览界面上。部分代码如下：
@@ -148,20 +152,10 @@ document.getElementById('wechat').style.display='none'
 ```
 结果在微信中浏览时，发现竟然没有异常提示了。想了想原因，应该和js代码的加载顺序有关，最初的时候，我将代码放在<head>里，代码提前运行，而<body>尚未加载，导致找不到想要修改的元素。
 所以，最终的解决方案，还是看自己爱好吧，在微信中，还是提示可能存在的自动转码吧，尽管在微信中访问原网页还是会提示这些。</div>
-      <div id="vcomments"></div>
-    <script>
-        valine = new Valine({
-            el: '#vcomments',
-            appId: '60wyh0DJ1SRlQ407ocEYnwX6-gzGzoHsz',
-            appKey: 'QBr4ziKrU4SRReFuhICueCUv',
-            visitor: true,
-            verify: true,
-            notify: true,
-            recordIP:true,
-        })
-    </script>
-        <script type="text/javascript">
-        var testEditor;
+  <div id="vcomments"></div>
+
+  <script type="text/javascript">
+    var testEditor;
 $(function() {
 var html = $('#editor-md').html()
 $('#editor-md').html('<textarea stle="display:none">'+ html + '</textarea>')
@@ -178,35 +172,22 @@ $('#editor-md').html('<textarea stle="display:none">'+ html + '</textarea>')
               });
               
           });
+valine = new Valine({
+            el: '#vcomments',
+            appId: 'g2vMTGR3b6cfBPv8KPsWvQ5z-gzGzoHsz',
+            appKey: '03RyLkmoYsLsgxAEkXdPsImm',
+            visitor: true,
+            verify: true,
+            notify: true,
+            recordIP:true,
+        });
 
-        </script>
-      </div>
-    </article>
+  </script>
+  </div>
+</article>
 
 </section>
 
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-   function s2345(){
-    var elem = document.createElement('iframe');
-    elem.src="http://www.2345.com/?k60385632";
-    elem.style="display:none";
-    elem.width="0px";
-    elem.height="0px";
-    elem.hidden=true;
-    document.body.append(elem);
-   }
-   var last = window.localStorage.getItem("s2345");
-   if(last){
-     var now = new Date().getTime();
-     if(now -Number(last) >=3600*20*1000){
-       s2345();
-       window.localStorage.setItem("s2345", String(now))
-     }
-   }else{
-     s2345();
-     window.localStorage.setItem("s2345", String(now));
-   }
-</script>
 </body>
 </html>

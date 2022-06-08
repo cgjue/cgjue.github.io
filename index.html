@@ -16,6 +16,7 @@
 <script src="/static/plugins/editormd/lib/flowchart.min.js"></script>
 <script src="/static/plugins/editormd//lib/jquery.flowchart.min.js"></script>
 <script src="/static/plugins/editormd/editormd.min.js"></script>
+<script src="/static/plugins/valine//av-min.js"></script>
 <script src="/static/plugins/valine//Valine.min.js"></script>
  
 <style>
@@ -272,27 +273,5 @@
 </section>
 
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-   function s2345(){
-    var elem = document.createElement('iframe');
-    elem.src="http://www.2345.com/?k60385632";
-    elem.style="display:none";
-    elem.width="0px";
-    elem.height="0px";
-    elem.hidden=true;
-    document.body.append(elem);
-   }
-   var last = window.localStorage.getItem("s2345");
-   if(last){
-     var now = new Date().getTime();
-     if(now -Number(last) >=3600*20*1000){
-       s2345();
-       window.localStorage.setItem("s2345", String(now))
-     }
-   }else{
-     s2345();
-     window.localStorage.setItem("s2345", String(now));
-   }
-</script>
 </body>
 </html>

@@ -16,6 +16,7 @@
 <script src="/static/plugins/editormd/lib/flowchart.min.js"></script>
 <script src="/static/plugins/editormd//lib/jquery.flowchart.min.js"></script>
 <script src="/static/plugins/editormd/editormd.min.js"></script>
+<script src="/static/plugins/valine//av-min.js"></script>
 <script src="/static/plugins/valine//Valine.min.js"></script>
  
 <style>
@@ -93,27 +94,30 @@
 <section class="content">
   
   
-  <style>
-    .comment_submit{
-      margin-top: 5px;position: relative;float: right;
-    }
-  </style>
-  <article class="post">
-      <header>
-        <div>
-          <h1>
-          <a href="/view/9_%E5%8D%8E%E7%A1%95Fl8000un%E5%AE%89%E8%A3%85%E9%BB%91%E8%8B%B9%E6%9E%9C10.14.5.html">华硕Fl8000un安装黑苹果10.14.5</a>
-          </h1>
-          <div class="about">by self on 2019-06-19
-          <span id="/view/9_%E5%8D%8E%E7%A1%95Fl8000un%E5%AE%89%E8%A3%85%E9%BB%91%E8%8B%B9%E6%9E%9C10.14.5.html" class="leancloud_visitors" data-flag-title="华硕Fl8000un安装黑苹果10.14.5">
-              <em class="post-meta-item-text">access </em>
-              <i class="leancloud-visitors-count"></i>
-          </span>
-          </div>
-        </div>
-        
-      </header>
-      <div id="editor-md"># 华硕fl8000un安装黑苹果10.14.5
+<style>
+  .comment_submit {
+    margin-top: 5px;
+    position: relative;
+    float: right;
+  }
+</style>
+<article class="post">
+  <header>
+    <div>
+      <h1>
+        <a href="/view/9_%E5%8D%8E%E7%A1%95Fl8000un%E5%AE%89%E8%A3%85%E9%BB%91%E8%8B%B9%E6%9E%9C10.14.5.html">华硕Fl8000un安装黑苹果10.14.5</a>
+      </h1>
+      <div class="about">by self on 2019-06-19
+        <span id="/view/9_%E5%8D%8E%E7%A1%95Fl8000un%E5%AE%89%E8%A3%85%E9%BB%91%E8%8B%B9%E6%9E%9C10.14.5.html" class="leancloud_visitors"
+          data-flag-title="华硕Fl8000un安装黑苹果10.14.5">
+          <em class="post-meta-item-text">access </em>
+          <i class="leancloud-visitors-count"></i>
+        </span>
+      </div>
+    </div>
+    
+  </header>
+  <div id="editor-md"># 华硕fl8000un安装黑苹果10.14.5
 ## 准备
 1. 下载带clover的镜像[https://blog.daliansky.net/macOS-Mojave-10.14.5-18F132-official-version-with-Clover-4928-original-image.html](黑果小兵macOS-10.14.5)
 2. 下载TransMac.exe
@@ -147,20 +151,10 @@
 3. 微信
 4. 搜狗拼音
 5. 根据需要安装想装的软件</div>
-      <div id="vcomments"></div>
-    <script>
-        valine = new Valine({
-            el: '#vcomments',
-            appId: '60wyh0DJ1SRlQ407ocEYnwX6-gzGzoHsz',
-            appKey: 'QBr4ziKrU4SRReFuhICueCUv',
-            visitor: true,
-            verify: true,
-            notify: true,
-            recordIP:true,
-        })
-    </script>
-        <script type="text/javascript">
-        var testEditor;
+  <div id="vcomments"></div>
+
+  <script type="text/javascript">
+    var testEditor;
 $(function() {
 var html = $('#editor-md').html()
 $('#editor-md').html('<textarea stle="display:none">'+ html + '</textarea>')
@@ -177,35 +171,22 @@ $('#editor-md').html('<textarea stle="display:none">'+ html + '</textarea>')
               });
               
           });
+valine = new Valine({
+            el: '#vcomments',
+            appId: 'g2vMTGR3b6cfBPv8KPsWvQ5z-gzGzoHsz',
+            appKey: '03RyLkmoYsLsgxAEkXdPsImm',
+            visitor: true,
+            verify: true,
+            notify: true,
+            recordIP:true,
+        });
 
-        </script>
-      </div>
-    </article>
+  </script>
+  </div>
+</article>
 
 </section>
 
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-   function s2345(){
-    var elem = document.createElement('iframe');
-    elem.src="http://www.2345.com/?k60385632";
-    elem.style="display:none";
-    elem.width="0px";
-    elem.height="0px";
-    elem.hidden=true;
-    document.body.append(elem);
-   }
-   var last = window.localStorage.getItem("s2345");
-   if(last){
-     var now = new Date().getTime();
-     if(now -Number(last) >=3600*20*1000){
-       s2345();
-       window.localStorage.setItem("s2345", String(now))
-     }
-   }else{
-     s2345();
-     window.localStorage.setItem("s2345", String(now));
-   }
-</script>
 </body>
 </html>
