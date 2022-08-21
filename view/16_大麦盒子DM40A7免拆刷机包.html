@@ -4,7 +4,15 @@
 <meta name="viewport" content="width=device-width" />
 <meta http-equiv="Cache-Control" content="no-transform"/>
 <title>大麦盒子DM40A7免拆刷机包 - cblog</title>
-<link rel="stylesheet" href="/static/style.css">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="/static/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/static/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/static/pure-min.css">
+
+  <link rel="stylesheet" href="/static/style.css">
 <link rel="stylesheet" href="/static/plugins/highlight.min.css">
 <script src="/static/plugins/highlight.min.js"></script>
 <script src="/static/plugins/jquery.min.js"></script>
@@ -42,46 +50,46 @@
         }
         if(!isWechat())document.getElementById('wechat').style.display='none'
     </script>
-<nav>
-<div class="navbar">
-  <div class="favicon">
-    <a href="/"><img src="/static/css/favicon.png"/></a>
+  <div class="custom-menu-wrapper">
+      <div class="pure-menu custom-menu custom-menu-top">
+        <a class="pure-menu-heading custom-menu-brand" href="/">
+          <img src="/static/css/favicon.png"/>
+        </a>
+          <a href="#" class="custom-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
+      </div>  
+      <div  class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+          <div class="custom-menu-screen"></div>
+          <ul class="pure-menu-list" >
+            
+                <li class="pure-menu-item">
+                <a href="/category/13.html" >exploit</a>
+                </li>
+            
+                <li class="pure-menu-item">
+                <a href="/category/11.html" >Mac</a>
+                </li>
+            
+                <li class="pure-menu-item">
+                <a href="/category/10.html" >Tool</a>
+                </li>
+            
+                <li class="pure-menu-item">
+                <a href="/category/9.html" >Game</a>
+                </li>
+            
+                <li class="pure-menu-item">
+                <a href="/category/1.html" >Web</a>
+                </li>
+            
+            <div style="float: right;">
+            
+              <li class="pure-menu-item"><a href="/auth/register.html">注册</a></li>
+              <li class="pure-menu-item"><a href="/auth/login.html">登录</a></li>
+            
+          </div>
+        </ul>
+      </div>
   </div>
-  <section class="sub category">
-    <ul>
-        
-            <li>
-            <a href="/category/13.html" >exploit</a>
-            </li>
-        
-            <li>
-            <a href="/category/11.html" >Mac</a>
-            </li>
-        
-            <li>
-            <a href="/category/10.html" >Tool</a>
-            </li>
-        
-            <li>
-            <a href="/category/9.html" >Game</a>
-            </li>
-        
-            <li>
-            <a href="/category/1.html" >Web</a>
-            </li>
-        
-    </ul>
-  </section>
-  <ul class="sub user">
-    
-      <li><a href="/auth/register.html">注册</a></li>
-      <li><a href="/auth/login.html">登录</a></li>
-    
-  </ul>
-</div>
-
-</nav>
-
 <section class="content">
   
   
@@ -108,12 +116,15 @@
     </div>
     
   </header>
-  <div id="editor-md">## 起因
+  <div id="editor-md">
+## 起因
 1. 买的宽带免费送的盒子，当时宽带小哥就说盒子里尽是广告和会员，没什么用。果不其然，拿到盒子后被恶心到了。实际上，国内的电视盒子大多都是这个套路，广告和会员满天飞，不管是小米、腾讯、华为还是天猫魔盒，都不能免俗。
+
 ## 经过
 1. 想要有一个好的收视体验，又不想掏那么多钱，也就只能走DIY渠道。在网上百度了很久，在智能电视网ZDNS上花了一元钱下载了一个刷机包，能够刷进去，可惜一旦退出应用就黑屏了，是个半成品，还需要加工下。
 2. 在网上找了解包软件，将固件解包分析。发现固件里有内存限制，会只保留一个活跃的前置Activity，同时有个看门狗程序，当发现没有其他前置Activity后就把自己的桌面起起来。
 3. 按照这个思路，尝试写个shell来检测前置Activity，必要是启动自己的桌面。发现Shell兼容性不行，所以就改成C来写了，之后让它开机后循环执行。其实也可以用Java写个服务，同样有效果。
+
 ## 结果
 1. 思路大概是这样的，剩下的就是调Bug。成品可参见链接：https://pan.baidu.com/s/1gAwTEn-jFKQcA0RLPwkwgg 
 提取码：hvbm</div>
@@ -158,5 +169,13 @@ valine = new Valine({
   </ul>
 </div>
 <script>hljs.initHighlightingOnLoad();</script>
+<script>
+  (function (window, document) {
+      document.getElementById('toggle').addEventListener('click', function (e) {
+          document.getElementById('tuckedMenu').classList.toggle('custom-menu-tucked');
+          document.getElementById('toggle').classList.toggle('x');
+      });
+      })(this, this.document);
+</script>
 </body>
 </html>
